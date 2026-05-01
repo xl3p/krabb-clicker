@@ -24,7 +24,7 @@ jobs:
     
     - name: Build executable
       run: |
-        pyinstaller --onefile --name "myapp" your_script.py
+        pyinstaller --onefile --name "krabb-clicker" main.py
     
     - name: Upload binary
       uses: actions/upload-artifact@v4
