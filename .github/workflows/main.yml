@@ -35,5 +35,5 @@ jobs:
     - name: Upload EXE
       uses: actions/upload-artifact@v4
       with:
-        name: windows-app
+        name: Krabb-clicker_windows
         path: dist/myapp.exe
