@@ -7,7 +7,7 @@ on:
 
 jobs:
   build-linux:
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-22.04
     
     steps:
     - uses: actions/checkout@v4
@@ -15,7 +15,7 @@ jobs:
     - name: Set up Python
       uses: actions/setup-python@v5
       with:
-        python-version: '3.11'
+        python-version: '3.10'
     
     - name: Install system dependencies
       run: |
@@ -27,74 +27,29 @@ jobs:
           scrot \
           xclip \
           libmpv-dev \
-          libmpv1
+          libmpv1 \
+          libgstreamer1.0-0 \
+          libgstreamer-plugins-base1.0-0
     
     - name: Install Python dependencies
       run: |
         python -m pip install --upgrade pip
-        pip install flet flet-desktop pyautogui pynput pyinstaller
+        pip install flet==0.24.1 flet-desktop==0.24.1 pyautogui pynput pyinstaller
     
-    - name: Create spec file
+    - name: Build with Flet pack
       run: |
-        cat > KrabbClicker.spec << 'EOF'
-        # -*- mode: python ; coding: utf-8 -*-
-        
-        a = Analysis(
-            ['main.py'],
-            pathex=[],
-            binaries=[],
-            datas=[],
-            hiddenimports=[
-                'pynput.keyboard._xorg',
-                'pynput.mouse._xorg',
-                'pynput._util.xorg',
-                'Xlib',
-                'Xlib.display',
-                'Xlib.X',
-                'Xlib.XK',
-                'Xlib.ext',
-                'Xlib.protocol',
-                'flet_desktop',
-                'flet_core',
-                'flet',
-            ],
-            hookspath=[],
-            hooksconfig={},
-            runtime_hooks=[],
-            excludes=[],
-            noarchive=False,
-        )
-        
-        pyz = PYZ(a.pure)
-        
-        exe = EXE(
-            pyz,
-            a.scripts,
-            a.binaries,
-            a.datas,
-            [],
-            name='KrabbClicker',
-            debug=False,
-            bootloader_ignore_signals=False,
-            strip=False,
-            upx=True,
-            upx_exclude=[],
-            runtime_tmpdir=None,
-            console=False,
-            disable_windowed_traceback=False,
-            argv_emulation=False,
-            target_arch=None,
-            codesign_identity=None,
-            entitlements_file=None,
-        )
-        EOF
+        flet pack main.py \
+          --name "KrabbClicker" \
+          --onedir \
+          --add-package flet_desktop
     
-    - name: Build with PyInstaller
+    - name: Package as tar.gz
       run: |
-        pyinstaller KrabbClicker.spec
+        cd dist
+        tar -czf ../KrabbClicker-linux.tar.gz KrabbClicker/
     
     - name: Upload artifact
       uses: actions/upload-artifact@v4
       with:
         name: KrabbClicker-Linux
-        path: dist/KrabbClicker
+        path: KrabbClicker-linux.tar.gz
