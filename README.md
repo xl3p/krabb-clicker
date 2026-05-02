@@ -27,7 +27,7 @@ ldd --version
 
 1. Download the appropriate archive for your operating system from [the Releases page](https://github.com/xl3p/krabb-clicker/releases)
 
-2. Extract krabb-clicker-windows.zip and run krabb-clicker
+2. Extract `.zip` and run krabb-clicker
 
 ## 🎮 Usage
 
