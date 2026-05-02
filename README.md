@@ -16,6 +16,10 @@ A lightweight, customizable autoclicker with a modern GUI built with Flet. Suppo
 
 ### Linux
 - glibc 2.39+
+#### To see glibc version
+``` bash
+ldd --version
+```
 
 ## 🚀 Installation
 
