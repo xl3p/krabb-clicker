@@ -1,10 +1,10 @@
 # 🦀 Krabb-Clicker
-![Python](https://img.shields.io/badge/Python-3.8+-3776AB?logo=python&logoColor=white)
-![Flet](https://img.shields.io/badge/Flet-0.28.3-00599C?logo=python&logoColor=white)
-![PyAutoGUI](https://img.shields.io/badge/PyAutoGUI-0.9.54-3776AB?logo=python&logoColor=white)
-![Pynput](https://img.shields.io/badge/Pynput-1.7.8-FF9800?logo=python&logoColor=white)
-![Platform](https://img.shields.io/badge/Windows-10%2F11-0078D6?logo=windows&logoColor=white)
-![Platform](https://img.shields.io/badge/Linux-glibc%202.39+-FCC624?logo=linux&logoColor=black)
+[![Python](https://img.shields.io/badge/Python-3.8+-3776AB?logo=python&logoColor=white)](https://www.python.org/)
+[![Flet](https://img.shields.io/badge/Flet-0.28.3-00599C?logo=python&logoColor=white)](https://flet.dev/)
+[![PyAutoGUI](https://img.shields.io/badge/PyAutoGUI-0.9.54-3776AB?logo=python&logoColor=white)](https://pypi.org/project/PyAutoGUI/)
+[![Pynput](https://img.shields.io/badge/Pynput-1.7.8-FF9800?logo=python&logoColor=white)](https://pypi.org/project/pynput/)
+[![Platform](https://img.shields.io/badge/Windows-10%2F11-0078D6?logo=windows&logoColor=white)](https://www.microsoft.com/en-us/windows)
+[![Platform](https://img.shields.io/badge/Linux-glibc%202.39+-FCC624?logo=linux&logoColor=black)](https://rus-linux.net/MyLDP/algol/glibc-version.html)
 
 A lightweight, customizable autoclicker with a modern GUI built with Flet. Supports both mouse buttons and keyboard keys with configurable click intervals.
 
