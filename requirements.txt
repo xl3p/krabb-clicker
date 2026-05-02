@@ -1,5 +1,0 @@
-flet==0.24.1
-flet-desktop==0.24.1
-pyautogui
-pynput
-pyinstaller
